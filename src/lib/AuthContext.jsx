@@ -1,42 +1,75 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from '@/lib/firebase';
+import { pullAndMerge, startSync, stopSync, clearCloud } from '@/lib/cloudSync';
 
-// Lokaler Profil-/Auth-Ersatz (kein Server, kein Base44).
-// Der Name wird nur im Browser gespeichert.
+// Anmeldung mit Google (Firebase). Ohne Login funktioniert die App weiterhin,
+// der Fortschritt bleibt dann nur lokal auf dem Gerät.
 
 const AuthContext = createContext();
-const PROFILE_KEY = 'geozeit_profile';
-
-function loadProfile() {
-  try {
-    const raw = localStorage.getItem(PROFILE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch {
-    // ignore
-  }
-  return { full_name: '', email: '' };
-}
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(loadProfile);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
 
-  const updateProfile = (partial) => {
-    setUser((prev) => {
-      const next = { ...prev, ...partial };
-      localStorage.setItem(PROFILE_KEY, JSON.stringify(next));
-      return next;
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, async (fbUser) => {
+      if (fbUser) {
+        const u = {
+          uid: fbUser.uid,
+          full_name: fbUser.displayName || '',
+          email: fbUser.email || '',
+          photoURL: fbUser.photoURL || '',
+        };
+        setUser(u);
+        try {
+          localStorage.setItem(
+            'geozeit_profile',
+            JSON.stringify({ full_name: u.full_name, email: u.email })
+          );
+        } catch {
+          // ignore
+        }
+        setSyncing(true);
+        try {
+          await pullAndMerge(fbUser.uid);
+        } catch (e) {
+          console.error('Synchronisation fehlgeschlagen:', e);
+        }
+        startSync(fbUser.uid);
+        setSyncing(false);
+      } else {
+        stopSync();
+        setUser(null);
+      }
+      setLoading(false);
     });
+    return () => unsub();
+  }, []);
+
+  const signInWithGoogle = async () => {
+    await signInWithPopup(auth, googleProvider);
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+  const resetCloudProgress = async () => {
+    if (user) await clearCloud(user.uid);
   };
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        isAuthenticated: true,
-        isLoadingAuth: false,
-        isLoadingPublicSettings: false,
-        authError: null,
-        authChecked: true,
-        updateProfile,
+        isAuthenticated: !!user,
+        loading,
+        syncing,
+        signInWithGoogle,
+        logout,
+        resetCloudProgress,
       }}
     >
       {children}
