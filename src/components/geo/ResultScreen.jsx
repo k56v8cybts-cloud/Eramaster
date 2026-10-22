@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, XCircle, Clock, ArrowLeft, RotateCcw, ShieldAlert, Star } from 'lucide-react';
+import { Trophy, XCircle, Clock, ArrowLeft, RotateCcw, ShieldAlert, Star, Award, Unlock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export default function ResultScreen({ errors, total, elapsed, failed, gameType, score, maxScore, onReplay, onModeMenu }) {
+export default function ResultScreen({ errors, total, elapsed, failed, gameType, score, maxScore, badgeLabel, unlockedNext, onReplay, onModeMenu }) {
   const hasScore = typeof score === 'number';
   const perfect = errors === 0;
   const good = errors <= 3;
@@ -99,6 +99,27 @@ export default function ResultScreen({ errors, total, elapsed, failed, gameType,
             </div>
           )}
         </motion.div>
+
+        {badgeLabel && (
+          <motion.div
+            className="mb-8 rounded-2xl border border-amber-400/40 bg-amber-400/10 px-4 py-4 flex flex-col items-center gap-1.5"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.55, type: 'spring' }}
+          >
+            <div className="flex items-center gap-2 text-amber-500">
+              <Award className="h-5 w-5" />
+              <span className="text-sm font-bold">Abzeichen erhalten!</span>
+            </div>
+            <span className="text-sm font-semibold text-foreground">„{badgeLabel}"</span>
+            {unlockedNext && (
+              <span className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-primary">
+                <Unlock className="h-3.5 w-3.5" />
+                {unlockedNext} freigeschaltet
+              </span>
+            )}
+          </motion.div>
+        )}
 
         <motion.div
           className="flex flex-col gap-3"

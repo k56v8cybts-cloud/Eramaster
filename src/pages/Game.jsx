@@ -9,6 +9,7 @@ import InfoOverlay from '@/components/geo/InfoOverlay';
 import GameHeader from '@/components/geo/GameHeader';
 import ResultScreen from '@/components/geo/ResultScreen';
 import { saveRun } from './Leaderboard';
+import { EPOCH_ORDER, EPOCH_LABELS, nextEpochMode } from '@/lib/badges';
 
 const FEEDBACK_DURATION = 1200;
 
@@ -120,6 +121,10 @@ export default function Game() {
   }, [finished]);
 
   if (finished) {
+    // Abzeichen & Freischaltung für fehlerfreie EpochenQuiz-Läufe
+    const isEpoch = EPOCH_ORDER.includes(modeId);
+    const badgeEarned = isEpoch && !failed && errors === 0;
+    const nextMode = badgeEarned ? nextEpochMode(modeId) : null;
     return (
       <ResultScreen
         errors={errors}
@@ -127,6 +132,8 @@ export default function Game() {
         elapsed={elapsed}
         failed={failed}
         gameType={gameType}
+        badgeLabel={badgeEarned ? `${EPOCH_LABELS[modeId]}-Meister` : undefined}
+        unlockedNext={nextMode ? `${EPOCH_LABELS[nextMode]}-Modus` : undefined}
         onReplay={initGame}
         onModeMenu={() => navigate(`/mode/${modeId}`)}
       />

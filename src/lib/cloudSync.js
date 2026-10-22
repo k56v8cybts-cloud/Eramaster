@@ -28,12 +28,18 @@ function readLocalRuns() {
   return runs;
 }
 
+// Stabile Signatur unabhängig von der Schlüssel-Reihenfolge
+function runSignature(run) {
+  if (!run || typeof run !== 'object') return JSON.stringify(run);
+  return JSON.stringify(Object.keys(run).sort().reduce((o, k) => { o[k] = run[k]; return o; }, {}));
+}
+
 // Vereinigt zwei Listen von Spielläufen ohne Duplikate, neueste zuerst.
 function mergeRunArrays(a = [], b = []) {
   const seen = new Set();
   const out = [];
   for (const run of [...(a || []), ...(b || [])]) {
-    const id = JSON.stringify(run);
+    const id = runSignature(run);
     if (!seen.has(id)) {
       seen.add(id);
       out.push(run);
