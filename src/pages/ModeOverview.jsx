@@ -31,6 +31,8 @@ export default function ModeOverview() {
     return null;
   }
 
+  const backTarget = ['eons', 'eras', 'periods', 'expert'].includes(modeId) ? '/epochenquiz' : '/';
+
   const handleOption = (optionId) => {
     if (modeId === 'olderthan') {
       if (optionId === 'training') navigate('/olderthan/play');
@@ -80,7 +82,7 @@ export default function ModeOverview() {
         />
         <div className="relative px-4 pt-12 pb-8 max-w-md mx-auto">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate(backTarget)}
             className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />

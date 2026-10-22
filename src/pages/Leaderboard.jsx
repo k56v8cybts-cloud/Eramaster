@@ -97,9 +97,15 @@ export default function Leaderboard() {
                     <span className="text-xs font-semibold text-foreground">
                       {GAME_TYPE_LABELS[run.gameType] || run.gameType}
                     </span>
-                    <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${run.errors === 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                      {run.errors === 0 ? '✓ Perfekt' : `${run.errors} Fehler`}
-                    </span>
+                    {typeof run.score === 'number' ? (
+                      <span className="text-xs px-1.5 py-0.5 rounded-full font-medium bg-amber-100 text-amber-700">
+                        {run.score}{run.maxScore ? `/${run.maxScore}` : ''} Punkte
+                      </span>
+                    ) : (
+                      <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${run.errors === 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                        {run.errors === 0 ? '✓ Perfekt' : `${run.errors} Fehler`}
+                      </span>
+                    )}
                   </div>
                   <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">

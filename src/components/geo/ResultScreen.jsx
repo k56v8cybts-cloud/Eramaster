@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, XCircle, Clock, ArrowLeft, RotateCcw, ShieldAlert } from 'lucide-react';
+import { Trophy, XCircle, Clock, ArrowLeft, RotateCcw, ShieldAlert, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export default function ResultScreen({ errors, total, elapsed, failed, gameType, onReplay, onModeMenu }) {
+export default function ResultScreen({ errors, total, elapsed, failed, gameType, score, maxScore, onReplay, onModeMenu }) {
+  const hasScore = typeof score === 'number';
   const perfect = errors === 0;
   const good = errors <= 3;
 
@@ -71,7 +72,15 @@ export default function ResultScreen({ errors, total, elapsed, failed, gameType,
             </div>
             <p className="text-xs text-muted-foreground">Fehler</p>
           </div>
-          {!failed && (
+          {hasScore ? (
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-1.5 text-amber-500 mb-1">
+                <Star className="h-4 w-4 fill-amber-500" />
+                <span className="text-2xl font-bold">{score}</span>
+              </div>
+              <p className="text-xs text-muted-foreground">von {maxScore} Punkten</p>
+            </div>
+          ) : !failed && (
             <div className="text-center">
               <div className="flex items-center justify-center gap-1.5 text-primary mb-1">
                 <Trophy className="h-4 w-4" />

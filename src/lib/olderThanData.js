@@ -67,33 +67,42 @@ function buildItems() {
 
 export const ALL_ITEMS = buildItems();
 
-// Minimum temporal difference as fraction of total scale (4600 Ma)
-// Items closer than this are considered "too similar" and avoided
-const MIN_DIFF_FRACTION = 0.04; // ~184 Ma
-const TOTAL_MA = 4600;
+// Temporal distance window between the two shown items (in Ma):
+// not too close (ambiguous) and not more than 2000 Ma apart.
+const MIN_DIFF_MA = 150;
+const MAX_DIFF_MA = 2000;
 
 export function pickPair(usedIds = new Set()) {
   // Filter out items that have been used if possible
   let pool = ALL_ITEMS.filter(i => !usedIds.has(i.id));
   if (pool.length < 2) pool = ALL_ITEMS;
 
-  // Try up to 50 times to find a well-separated pair
-  for (let attempt = 0; attempt < 50; attempt++) {
+  // Try to find a pair within the desired distance window
+  for (let attempt = 0; attempt < 80; attempt++) {
     const i1 = Math.floor(Math.random() * pool.length);
     let i2 = Math.floor(Math.random() * (pool.length - 1));
     if (i2 >= i1) i2++;
 
     const a = pool[i1];
     const b = pool[i2];
-    const diff = Math.abs(a.start_ma - b.start_ma) / TOTAL_MA;
+    const diff = Math.abs(a.start_ma - b.start_ma);
 
-    if (diff >= MIN_DIFF_FRACTION) {
+    if (diff >= MIN_DIFF_MA && diff <= MAX_DIFF_MA) {
       return [a, b];
     }
   }
 
-  // Fallback: just pick any two different items
+  // Fallback: closest-to-window pair from a random sample
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  const a = shuffled[0];
+  const candidates = shuffled
+    .slice(1)
+    .map((b) => ({ b, diff: Math.abs(a.start_ma - b.start_ma) }))
+    .filter((c) => c.diff <= MAX_DIFF_MA);
+  if (candidates.length > 0) {
+    candidates.sort((x, y) => y.diff - x.diff);
+    return [a, candidates[0].b];
+  }
   return [shuffled[0], shuffled[1]];
 }
 

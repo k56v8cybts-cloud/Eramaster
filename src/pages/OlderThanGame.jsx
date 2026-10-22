@@ -22,13 +22,30 @@ function saveStreakRun(streak) {
   localStorage.setItem(key, JSON.stringify(runs.slice(0, 50)));
 }
 
-function formatMa(ma) {
-  if (ma >= 1000) return `${(ma / 1000).toFixed(1).replace('.', ',')} Ga`;
-  if (ma < 1) return `${(ma * 1000).toFixed(0)} ka`;
-  return `${ma.toLocaleString('de-DE')} Ma`;
+// Formatiert einen Zeitpunkt (in Ma) als deutschen Text, z. B.
+// "vor etwa 145 Millionen Jahren" oder "vor etwa 11.700 Jahren" / "heute".
+function pointPhrase(ma) {
+  if (ma <= 0) return 'heute';
+  if (ma < 1) {
+    const years = Math.round(ma * 1_000_000);
+    return `vor etwa ${years.toLocaleString('de-DE')} Jahren`;
+  }
+  const value = ma >= 100 ? Math.round(ma) : Math.round(ma * 10) / 10;
+  return `vor etwa ${value.toLocaleString('de-DE')} Millionen Jahren`;
 }
 
-function ItemCard({ item, state, onClick, disabled }) {
+// Zeitangabe eines Elements: Zeitpunkt oder Zeitspanne.
+function formatAge(item) {
+  const start = item.start_ma;
+  const end = item.end_ma ?? item.start_ma;
+  if (Math.abs(start - end) < 0.001) {
+    return pointPhrase(start);
+  }
+  const endPhrase = end <= 0 ? 'bis heute' : `bis ${pointPhrase(end)}`;
+  return `von ${pointPhrase(start)} ${endPhrase}`;
+}
+
+function ItemCard({ item, state, revealed, onClick, disabled }) {
   const isCorrect = state === 'correct';
   const isWrong = state === 'wrong';
 
@@ -82,13 +99,13 @@ function ItemCard({ item, state, onClick, disabled }) {
         {item.name}
       </p>
 
-      {/* Reveal Ma on result */}
-      {(isCorrect || isWrong) && (
+      {/* Reveal time span on result – for BOTH cards */}
+      {revealed && (
         <motion.p
-          className="text-xs text-muted-foreground mt-1"
+          className="text-xs text-muted-foreground mt-1.5 text-center leading-snug px-1"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         >
-          {formatMa(item.start_ma)} vor heute
+          {formatAge(item)}
         </motion.p>
       )}
     </motion.div>
@@ -245,12 +262,14 @@ export default function OlderThanGame() {
             <ItemCard
               item={left}
               state={feedback ? (feedback.correct === left.id ? 'correct' : feedback.wrong === left.id ? 'wrong' : null) : null}
+              revealed={!!feedback}
               onClick={() => handleChoice(left)}
               disabled={!!feedback}
             />
             <ItemCard
               item={right}
               state={feedback ? (feedback.correct === right.id ? 'correct' : feedback.wrong === right.id ? 'wrong' : null) : null}
+              revealed={!!feedback}
               onClick={() => handleChoice(right)}
               disabled={!!feedback}
             />

@@ -20,6 +20,7 @@ import OlderThanGame from './pages/OlderThanGame';
 import OlderThanLeaderboard from './pages/OlderThanLeaderboard';
 import Erfolge from './pages/Erfolge';
 import Profil from './pages/Profil';
+import EpochGroup from './pages/EpochGroup';
 import BottomTabBar from './components/BottomTabBar';
 
 const AuthenticatedApp = () => {
@@ -29,6 +30,7 @@ const AuthenticatedApp = () => {
     <BottomTabBar />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/epochenquiz" element={<EpochGroup />} />
       <Route path="/mode/:modeId" element={<ModeOverview />} />
       <Route path="/game/:modeId/:gameType" element={<Game />} />
       <Route path="/knowledge" element={<Knowledge />} />

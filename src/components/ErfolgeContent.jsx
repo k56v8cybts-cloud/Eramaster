@@ -21,6 +21,12 @@ function getStats(modeId, isStreak) {
     const best = Math.max(...runs.map(r => r.streak || 0));
     return { best, count: runs.length };
   }
+  // Punktebasierte Modi (z. B. Meilensteine)
+  if (runs.some(r => typeof r.score === 'number')) {
+    const bestScore = Math.max(...runs.map(r => r.score || 0));
+    const maxScore = runs.find(r => r.maxScore)?.maxScore;
+    return { count: runs.length, bestScore, maxScore };
+  }
   const perfect = runs.filter(r => r.errors === 0).length;
   const best = runs.reduce((b, r) => (!b || r.errors <= b.errors) ? r : b, null);
   return { count: runs.length, perfect, bestErrors: best?.errors ?? '–' };
@@ -46,6 +52,8 @@ export default function ErfolgeContent() {
                     <p className="text-xs text-muted-foreground mt-0.5">
                       {mode.streak
                         ? `Beste Streak: ${stats.best} · ${stats.count} Spiele`
+                        : stats.bestScore != null
+                        ? `Beste Punkte: ${stats.bestScore}${stats.maxScore ? `/${stats.maxScore}` : ''} · ${stats.count} Spiele`
                         : `${stats.count} Spiele · ${stats.perfect} perfekt · Beste: ${stats.bestErrors} Fehler`}
                     </p>
                   ) : (
@@ -60,7 +68,7 @@ export default function ErfolgeContent() {
                 ) : stats ? (
                   <div className="flex items-center gap-1 text-yellow-500">
                     <Trophy className="h-4 w-4" />
-                    <span className="text-sm font-bold">{stats.perfect}</span>
+                    <span className="text-sm font-bold">{stats.bestScore != null ? stats.bestScore : stats.perfect}</span>
                   </div>
                 ) : (
                   <Trophy className="h-4 w-4 text-muted-foreground/30" />

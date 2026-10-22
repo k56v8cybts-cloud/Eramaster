@@ -1,0 +1,72 @@
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Circle, Layers, Grid3x3, GraduationCap, ChevronRight } from 'lucide-react';
+
+const EPOCH_MODES = [
+  { id: 'eons', title: 'Äonen', description: 'Ordne die vier geologischen Äonen richtig zu.', icon: Circle, color: '#0ea5b7' },
+  { id: 'eras', title: 'Ären', description: 'Ordne die geologischen Ären richtig zu.', icon: Layers, color: '#2a9d8f' },
+  { id: 'periods', title: 'Perioden', description: 'Finde alle geologischen Perioden.', icon: Grid3x3, color: '#4FA64E' },
+  { id: 'expert', title: 'Experten', description: 'Alle Ebenen ohne Beschriftung – die größte Herausforderung.', icon: GraduationCap, color: '#E4572E' },
+];
+
+export default function EpochGroup() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-background overflow-auto">
+      {/* Hero */}
+      <div className="relative overflow-hidden border-b border-border/60">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
+        <div className="relative px-4 pt-12 pb-7 max-w-md mx-auto">
+          <button
+            onClick={() => navigate('/')}
+            className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Zurück
+          </button>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold mb-3 uppercase tracking-wider bg-primary/10 text-primary">
+            Epochen-Quiz
+          </div>
+          <h1 className="text-3xl font-display font-bold text-foreground mb-2 tracking-tight">
+            Die geologische Zeitskala
+          </h1>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+            Ordne die Bausteine der Erdgeschichte ein – von den großen Äonen bis zu den einzelnen Perioden.
+          </p>
+        </div>
+      </div>
+
+      {/* Modi */}
+      <div className="px-4 pt-5 pb-12 max-w-md mx-auto">
+        <div className="flex flex-col gap-2.5">
+          {EPOCH_MODES.map((mode, i) => (
+            <motion.div
+              key={mode.id}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 + i * 0.06 }}
+            >
+              <Link to={`/mode/${mode.id}`}>
+                <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card hover:border-border transition-all duration-200 active:scale-[0.98]">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 group-hover:w-1.5 transition-all duration-200" style={{ backgroundColor: mode.color }} />
+                  <div className="flex items-center gap-3.5 pl-5 pr-4 py-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: mode.color + '18' }}>
+                      <mode.icon className="h-5 w-5" style={{ color: mode.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground text-sm">{mode.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed line-clamp-1">{mode.description}</p>
+                    </div>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground/40 group-hover:text-muted-foreground transition-colors flex-shrink-0" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
