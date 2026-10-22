@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Dumbbell, ShieldAlert, BookOpen, Trophy, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Dumbbell, ShieldAlert, BookOpen, Eye, ChevronRight } from 'lucide-react';
 
 const MODE_META = {
   olderthan: { title: 'Was ist älter?', description: 'Vergleiche zwei zeitdatierte Elemente und entscheide, welches zeitlich früher liegt. Baue eine möglichst lange Streak!', color: '#f59e0b' },
@@ -15,10 +15,10 @@ const MODE_META = {
 };
 
 const options = [
+  { id: 'lernen', title: 'Lernen', description: 'Jede Epoche kurz erklärt – der ideale Einstieg.', icon: BookOpen, accent: '#0ea5b7' },
+  { id: 'view', title: 'Zeitstrahl ansehen', description: 'Vollständig beschriftet, alle Kacheln anklickbar mit Infos.', icon: Eye, accent: '#8b5cf6' },
   { id: 'training', title: 'Training', description: 'Unbegrenzte Versuche – lerne in deinem eigenen Tempo.', icon: Dumbbell, accent: '#3b82f6' },
   { id: 'exam', title: 'Prüfung', description: 'Ein Fehler – Spiel vorbei. Schaffst du einen fehlerfreien Run?', icon: ShieldAlert, accent: '#ef4444' },
-  { id: 'view', title: 'Zeitstrahl ansehen', description: 'Vollständig beschriftet, alle Kacheln anklickbar mit Infos.', icon: BookOpen, accent: '#8b5cf6' },
-  { id: 'leaderboard', title: 'Leaderboard', description: 'Deine bisherigen Ergebnisse im Überblick.', icon: Trophy, accent: '#f59e0b' },
 ];
 
 export default function ModeOverview() {
@@ -34,32 +34,30 @@ export default function ModeOverview() {
   const backTarget = ['eons', 'eras', 'periods', 'expert'].includes(modeId) ? '/epochenquiz' : '/';
 
   const handleOption = (optionId) => {
+    if (optionId === 'lernen') { navigate(`/learn/${modeId}`); return; }
     if (modeId === 'olderthan') {
       if (optionId === 'training') navigate('/olderthan/play');
-      else if (optionId === 'leaderboard') navigate('/leaderboard/olderthan');
       return;
     }
     if (modeId === 'milestones') {
       if (optionId === 'training' || optionId === 'exam') navigate(`/milestones/${optionId}`);
       else if (optionId === 'view') navigate('/milestones/knowledge');
-      else if (optionId === 'leaderboard') navigate('/leaderboard/milestones');
     } else if (modeId === 'creatures') {
       if (optionId === 'training' || optionId === 'exam') navigate(`/creatures/${optionId}`);
       else if (optionId === 'view') navigate('/creatures/knowledge');
-      else if (optionId === 'leaderboard') navigate('/leaderboard/creatures');
     } else if (modeId === 'bigfive') {
       if (optionId === 'training' || optionId === 'exam') navigate(`/bigfive/${optionId}`);
       else if (optionId === 'view') navigate('/bigfive/knowledge');
-      else if (optionId === 'leaderboard') navigate('/leaderboard/bigfive');
     } else {
       if (optionId === 'training' || optionId === 'exam') navigate(`/game/${modeId}/${optionId}`);
       else if (optionId === 'view') navigate(`/knowledge/${modeId}`);
-      else if (optionId === 'leaderboard') navigate(`/leaderboard/${modeId}`);
     }
   };
 
+  const EPOCH_MODES = ['eons', 'eras', 'periods'];
   const filteredOptions = options.filter(opt => {
-    if (modeId === 'olderthan') return opt.id === 'training' || opt.id === 'leaderboard';
+    if (modeId === 'olderthan') return opt.id === 'training';
+    if (opt.id === 'lernen') return EPOCH_MODES.includes(modeId);
     return true;
   });
 
