@@ -48,3 +48,13 @@ export const LEARN_SUMMARIES = {
   neogene: 'Grasländer breiten sich aus, das Klima wird kühler. Und die ersten Menschenaffen betreten die Szene.',
   quaternary: 'Das Eiszeitalter – mit Mammut und Säbelzahntiger. Und mittendrin breitet sich der moderne Mensch über die ganze Erde aus.',
 };
+
+// Kurze Lerntexte für die fünf großen Massenaussterben ("The Big Five").
+// Keyed nach der id aus bigFiveData.js (BIG_FIVE_ITEMS).
+export const BIG_FIVE_LEARN = {
+  b_ordovician_silurian: 'Das erste der „Big Five". Eine heftige Eiszeit lässt den Meeresspiegel abstürzen. Rund 85 % der Arten verschwinden – fast alles Leben spielte sich damals im Meer ab.',
+  devonian: 'Im späten Devon stirbt das Leben in mehreren Wellen (das Kellwasser-Ereignis). Besonders die Riffe und das warme Flachmeer trifft es hart. Die Ursachen sind bis heute umstritten.',
+  b_permian_triassic: 'Das größte Massenaussterben aller Zeiten – „The Great Dying". Riesige Vulkanausbrüche in Sibirien heizen das Klima auf. Bis zu 96 % der Meeresarten sterben aus.',
+  b_triassic_jurassic: 'Am Ende der Trias wird es wieder eng. Vulkanismus beim Zerbrechen von Pangäa verändert das Klima. Viele Konkurrenten verschwinden – und machen den Weg frei für die Dinosaurier.',
+  b_cretaceous_paleogene: 'Das berühmteste Massenaussterben. Ein etwa 10 km großer Asteroid schlägt in Mexiko ein. Die Dinosaurier (außer den Vögeln) sterben aus – danach übernehmen die Säugetiere.',
+};
