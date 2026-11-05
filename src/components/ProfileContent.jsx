@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Trash2, LogOut, Moon, Sun, Monitor, Cloud, Loader2 } from 'lucide-react';
+import { User, Trash2, LogOut, Moon, Sun, Monitor, Cloud, Loader2, FileText, ShieldCheck, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/lib/AuthContext';
+import LegalContent from '@/components/LegalContent';
 
 const themeOptions = [
   { id: 'system', label: 'System',  icon: Monitor },
@@ -28,6 +29,7 @@ export default function ProfileContent() {
   const [signingIn, setSigningIn] = useState(false);
   const [error, setError] = useState('');
   const [theme, setTheme] = useState(() => localStorage.getItem('geozeit_theme') || 'system');
+  const [legalPage, setLegalPage] = useState(null); // 'impressum' | 'datenschutz' | null
 
   useEffect(() => {
     const root = document.documentElement;
@@ -181,6 +183,34 @@ export default function ProfileContent() {
           </p>
         )}
       </motion.div>
+
+      {/* Rechtliches */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
+        className="rounded-2xl border border-border bg-card p-2"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground px-3 pt-2 pb-1">Rechtliches</p>
+        <button
+          onClick={() => setLegalPage('impressum')}
+          className="w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-muted transition-colors select-none"
+        >
+          <FileText className="h-4 w-4 text-muted-foreground shrink-0" />
+          <span className="text-sm text-foreground flex-1 text-left">Impressum</span>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/40 shrink-0" />
+        </button>
+        <button
+          onClick={() => setLegalPage('datenschutz')}
+          className="w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-muted transition-colors select-none"
+        >
+          <ShieldCheck className="h-4 w-4 text-muted-foreground shrink-0" />
+          <span className="text-sm text-foreground flex-1 text-left">Datenschutzerklärung</span>
+          <ChevronRight className="h-4 w-4 text-muted-foreground/40 shrink-0" />
+        </button>
+      </motion.div>
+
+      <LegalContent page={legalPage} onClose={() => setLegalPage(null)} />
     </div>
   );
 }

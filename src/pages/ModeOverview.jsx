@@ -54,10 +54,10 @@ export default function ModeOverview() {
     }
   };
 
-  const EPOCH_MODES = ['eons', 'eras', 'periods'];
+  const LEARN_MODES = ['eons', 'eras', 'periods', 'creatures', 'milestones', 'bigfive'];
   const filteredOptions = options.filter(opt => {
     if (modeId === 'olderthan') return opt.id === 'training';
-    if (opt.id === 'lernen') return EPOCH_MODES.includes(modeId);
+    if (opt.id === 'lernen') return LEARN_MODES.includes(modeId);
     return true;
   });
 
