@@ -1,47 +1,60 @@
-// Kurze Lern-Zusammenfassungen je Epoche (eigene Formulierung, Fakten nach Wikipedia / ICS).
+// Kurze Lern-Zusammenfassungen je Epoche.
+// Eigenständige, locker gehaltene Formulierungen auf Basis allgemein bekannter
+// wissenschaftlicher Fakten (Wikipedia / ICS / Lehrbücher) – keine Übernahme oder
+// Umformulierung geschützter Fremdtexte.
 // Keyed nach der id aus geoData.js. Die ausführlicheren Angaben (Klima/Leben/Ereignisse)
 // kommen weiterhin aus geoData.js (entry.info).
 
 export const LEARN_SUMMARIES = {
   // === Äonen ===
-  hadean: 'Die glühende Geburtsphase der Erde: ein Magmaozean, ständige Meteoriteneinschläge und die Entstehung des Mondes durch die Kollision mit dem Protoplaneten Theia. Noch kein Leben.',
-  archean: 'Die Erde kühlt ab, erste feste Kontinente und Ozeane bilden sich. Das erste Leben erscheint – einfache Einzeller (Prokaryoten) und von Bakterien gebaute Stromatolithen.',
-  proterozoic: 'Sauerstoff reichert sich an (Große Sauerstoffkatastrophe), erste komplexe Zellen (Eukaryoten) und vielzellige Organismen entstehen. Mehrere globale Vereisungen („Schneeball Erde").',
-  phanerozoic: 'Das Zeitalter des sichtbaren Lebens: von der Kambrischen Explosion über Fische, Dinosaurier und Säugetiere bis zum Menschen – geprägt von fünf großen Massenaussterben.',
+  hadean: 'Die Erde ist gerade entstanden – und glüht noch. Ein Ozean aus Magma, ständiger Meteoritenhagel. Dann kracht der Protoplanet Theia hinein; aus den Trümmern bildet sich der Mond. Leben gibt es noch keins.',
+  archean: 'Die Erde kühlt ab, erste feste Kontinente und Ozeane entstehen. Und dann passiert das Entscheidende: Leben taucht auf. Einfache Einzeller ohne Zellkern, dazu von Bakterien gebaute Stromatolithen.',
+  proterozoic: 'Cyanobakterien pumpen Sauerstoff in die Luft – für viele frühe Lebewesen ein Gift (die „Große Sauerstoffkatastrophe"). Erste komplexe Zellen entstehen. Dazwischen friert die Erde mehrmals fast komplett zu: „Schneeball Erde".',
+  phanerozoic: 'Das große Finale: sichtbares Leben erobert die Bühne. Vom Kambrium über Fische, Dinosaurier und Säugetiere bis zu uns. Mittendrin fünf gewaltige Massenaussterben.',
 
   // === Ären ===
-  eoarchean: 'Die älteste Ära mit den frühesten bekannten Gesteinen der Erde; möglicherweise erste Lebensspuren unter ständigem Meteoritenbombardement.',
-  paleoarchean: 'Eine stabilere Kruste bildet sich; die ältesten gesicherten Fossilien (Bakterien, Stromatolithen) entstehen in einer sauerstofffreien Welt.',
-  mesoarchean: 'Stromatolithen breiten sich aus und erste größere Kontinentkerne entstehen; Cyanobakterien beginnen, die Welt zu verändern.',
-  neoarchean: 'Cyanobakterien produzieren zunehmend Sauerstoff – die Bühne für die spätere Sauerstoffrevolution wird bereitet.',
-  paleoproterozoic: 'Die Große Sauerstoffkatastrophe verändert die Atmosphäre für immer; erste Eukaryoten und die erste große Eiszeit (Huronische Vereisung).',
-  mesoproterozoic: 'Eine lange, stabile Phase („die langweilige Milliarde"): der Superkontinent Rodinia bildet sich, erste sexuelle Fortpflanzung.',
-  neoproterozoic: 'Extreme „Schneeball-Erde"-Vereisungen – danach erscheinen die ersten großen vielzelligen Tiere (Ediacara-Fauna).',
-  paleozoic: 'Vom explosionsartigen Beginn des Tierlebens im Meer über die Eroberung des Landes bis zum größten Massenaussterben aller Zeiten am Ende des Perm.',
-  mesozoic: 'Das Zeitalter der Dinosaurier: Pangäa zerbricht, erste Vögel, Säugetiere und Blütenpflanzen – beendet durch den Asteroideneinschlag vor 66 Mio. Jahren.',
-  cenozoic: 'Das Zeitalter der Säugetiere und Vögel nach dem Dinosauriersterben; Alpen und Himalaya entstehen, Eiszeiten prägen das Klima, der Mensch entwickelt sich.',
+  eoarchean: 'Die älteste Ära überhaupt. Hier liegen die ältesten bekannten Gesteine der Erde. Vielleicht gab es schon erste Spuren von Leben – unter Dauerbeschuss aus dem All.',
+  paleoarchean: 'Die Erdkruste wird stabiler. Jetzt entstehen die ältesten sicheren Fossilien: Bakterien und Stromatolithen. Sauerstoff gibt es noch keinen.',
+  mesoarchean: 'Stromatolithen breiten sich aus, erste größere Kontinentkerne wachsen. Cyanobakterien fangen an, die Welt umzukrempeln.',
+  neoarchean: 'Cyanobakterien produzieren immer mehr Sauerstoff. Die große Sauerstoff-Revolution steht kurz bevor.',
+  paleoproterozoic: 'Der Sauerstoff verändert die Atmosphäre für immer. Es entstehen erste Eukaryoten – und die erste große Eiszeit der Erdgeschichte (die Huronische Vereisung).',
+  mesoproterozoic: 'Eine lange, ruhige Phase – Forscher nennen sie scherzhaft „die langweilige Milliarde". Der Superkontinent Rodinia bildet sich, und die sexuelle Fortpflanzung erscheint.',
+  neoproterozoic: 'Erst friert die Erde extrem zu („Schneeball Erde"), dann taut sie wieder auf. Danach tauchen die ersten großen Lebewesen auf: die rätselhafte Ediacara-Fauna.',
+  paleozoic: 'Das Leben explodiert förmlich – erst im Meer, dann an Land. Pflanzen, Insekten und Amphibien erobern das Festland. Am Ende: das größte Massenaussterben aller Zeiten.',
+  mesozoic: 'Das Zeitalter der Dinosaurier. Der Superkontinent Pangäa zerbricht, erste Vögel, Säugetiere und Blütenpflanzen erscheinen. Dann beendet ein Asteroid vor 66 Mio. Jahren die Show.',
+  cenozoic: 'Die Dinos sind weg – jetzt übernehmen Säugetiere und Vögel. Alpen und Himalaya türmen sich auf, Eiszeiten kommen und gehen, und der Mensch betritt die Bühne.',
 
   // === Perioden ===
-  siderian: 'Beginn der Sauerstoffanreicherung: Cyanobakterien und Stromatolithen dominieren, die erste große Vereisung setzt ein.',
-  rhyacian: 'Die Huronische Vereisung klingt ab; mächtige Gesteinskomplexe bilden sich, frühe Zellen entwickeln sich weiter.',
-  orosirian: 'Intensive Gebirgsbildung und gewaltige Meteoriteneinschläge; der Sauerstoffgehalt der Atmosphäre steigt deutlich.',
-  statherian: 'Stabilisierung nach der Sauerstoffkrise; erste einfache Eukaryoten etablieren sich.',
-  calymmian: 'Alte Kontinentkerne werden von Sedimenten überdeckt; einfache Eukaryoten und Bakterienmatten prägen das Leben.',
-  ectasian: 'Sedimentbecken dehnen sich aus; einzellige Eukaryoten werden vielfältiger.',
-  stenian: 'Der Superkontinent Rodinia entsteht; älteste Belege für sexuelle Fortpflanzung (Rotalgen).',
-  tonian: 'Rodinia beginnt zu zerbrechen; erste gesicherte vielzellige Eukaryoten erscheinen.',
-  cryogenian: 'Die extremste Eiszeit der Erdgeschichte – die Erde friert bis zum Äquator zu („Schneeball Erde").',
-  ediacaran: 'Nach dem Eis erscheinen die ersten großen, weichkörprigen Lebewesen: die rätselhafte Ediacara-Fauna.',
-  cambrian: 'Die Kambrische Explosion: in kurzer Zeit entstehen fast alle heutigen Tierstämme, darunter Trilobiten und erste Wirbeltiere.',
-  ordovician: 'Das Leben im Meer blüht auf; die Periode endet mit einer schweren Vereisung und dem zweitgrößten Massenaussterben.',
-  silurian: 'Stabiles, warmes Klima; erste Landpflanzen und Kieferfische erobern neue Lebensräume.',
-  devonian: 'Das „Zeitalter der Fische": Pflanzen bilden die ersten Wälder, und die ersten Amphibien betreten das Land.',
-  carboniferous: 'Riesige Sumpfwälder (die Grundlage der Steinkohle), ein hoher Sauerstoffgehalt, Rieseninsekten und die ersten Reptilien.',
-  permian: 'Reptilien und Säugetiervorfahren dominieren; die Periode endet mit dem größten Massenaussterben der Erdgeschichte (~96 % der Arten).',
-  triassic: 'Nach der großen Katastrophe erholt sich das Leben; erste Dinosaurier und Säugetiere erscheinen in einer heißen, trockenen Welt.',
-  jurassic: 'Blütezeit riesiger Sauropoden; Pangäa zerfällt, der Atlantik öffnet sich, und erste Vögel (Archaeopteryx) fliegen.',
-  cretaceous: 'Höhepunkt und Ende der Dinosaurier; die ersten Blütenpflanzen – beendet durch den Asteroideneinschlag an der K-Pg-Grenze.',
-  paleogene: 'Die Säugetiere breiten sich nach dem Dinosauriersterben rasant aus; erste Wale und Pferde entstehen.',
-  neogene: 'Grasländer breiten sich aus und das Klima kühlt ab; die ersten Menschenaffen entwickeln sich.',
-  quaternary: 'Das Eiszeitalter mit Mammut und Säbelzahntiger – und die Zeit, in der sich der moderne Mensch über die Erde ausbreitet.',
+  siderian: 'Der Sauerstoff-Anstieg beginnt. Cyanobakterien und Stromatolithen geben den Ton an, die erste große Vereisung setzt ein.',
+  rhyacian: 'Die erste große Eiszeit klingt ab. Mächtige Gesteinspakete bilden sich, die frühen Zellen entwickeln sich weiter.',
+  orosirian: 'Gebirge türmen sich auf, riesige Meteoriten schlagen ein. Und der Sauerstoff in der Luft steigt kräftig.',
+  statherian: 'Nach der Sauerstoff-Krise kehrt Ruhe ein. Erste einfache Eukaryoten setzen sich durch.',
+  calymmian: 'Alte Kontinentkerne verschwinden unter Sedimenten. Einfache Eukaryoten und Bakterienmatten prägen das Leben.',
+  ectasian: 'Die Sedimentbecken wachsen. Einzellige Eukaryoten werden vielfältiger.',
+  stenian: 'Der Superkontinent Rodinia entsteht. Von hier stammen die ältesten Belege für sexuelle Fortpflanzung (bei Rotalgen).',
+  tonian: 'Rodinia beginnt zu zerbrechen. Die ersten sicheren vielzelligen Eukaryoten tauchen auf.',
+  cryogenian: 'Die heftigste Eiszeit der Erdgeschichte. Die Erde friert bis zum Äquator zu – „Schneeball Erde".',
+  ediacaran: 'Nach dem Eis kommen die ersten großen Lebewesen: weich, bizarr, rätselhaft. Das ist die Ediacara-Fauna.',
+  cambrian: 'Jetzt geht\'s richtig los. In kurzer Zeit tauchen fast alle heutigen Tierstämme auf – die Kambrische Explosion. Trilobiten krabbeln durchs Meer, die ersten Wirbeltiere erscheinen.',
+  ordovician: 'Das Leben im Meer blüht auf. Am Ende kommt eine schwere Eiszeit – und das zweitgrößte Massenaussterben der Geschichte.',
+  silurian: 'Warm und stabil. Die ersten Pflanzen erobern das Land, und Fische bekommen Kiefer.',
+  devonian: 'Das „Zeitalter der Fische". Pflanzen bilden die ersten Wälder, und die ersten Vierbeiner wagen sich an Land.',
+  carboniferous: 'Riesige Sumpfwälder – aus ihnen wird später Steinkohle. Der Sauerstoff ist hoch, Insekten werden riesig, die ersten Reptilien erscheinen.',
+  permian: 'Reptilien und Säugetier-Vorfahren geben den Ton an. Dann kommt die größte Katastrophe aller Zeiten: Bis zu 96 % der Meeresarten sterben aus.',
+  triassic: 'Das Leben erholt sich von der großen Katastrophe. In einer heißen, trockenen Welt erscheinen die ersten Dinosaurier und Säugetiere.',
+  jurassic: 'Die große Zeit der riesigen Sauropoden. Pangäa zerfällt, der Atlantik öffnet sich – und die ersten Vögel heben ab.',
+  cretaceous: 'Höhepunkt und Ende der Dinosaurier. Die ersten Blütenpflanzen erscheinen. Dann schlägt ein Asteroid ein und beendet die Dino-Ära (die K-Pg-Grenze).',
+  paleogene: 'Die Säugetiere nutzen die freie Bühne und breiten sich rasant aus. Erste Wale und erste Pferde erscheinen.',
+  neogene: 'Grasländer breiten sich aus, das Klima wird kühler. Und die ersten Menschenaffen betreten die Szene.',
+  quaternary: 'Das Eiszeitalter – mit Mammut und Säbelzahntiger. Und mittendrin breitet sich der moderne Mensch über die ganze Erde aus.',
+};
+
+// Kurze Lerntexte für die fünf großen Massenaussterben ("The Big Five").
+// Keyed nach der id aus bigFiveData.js (BIG_FIVE_ITEMS).
+export const BIG_FIVE_LEARN = {
+  b_ordovician_silurian: 'Das erste der „Big Five". Eine heftige Eiszeit lässt den Meeresspiegel abstürzen. Rund 85 % der Arten verschwinden – fast alles Leben spielte sich damals im Meer ab.',
+  devonian: 'Im späten Devon stirbt das Leben in mehreren Wellen (das Kellwasser-Ereignis). Besonders die Riffe und das warme Flachmeer trifft es hart. Die Ursachen sind bis heute umstritten.',
+  b_permian_triassic: 'Das größte Massenaussterben aller Zeiten – „The Great Dying". Riesige Vulkanausbrüche in Sibirien heizen das Klima auf. Bis zu 96 % der Meeresarten sterben aus.',
+  b_triassic_jurassic: 'Am Ende der Trias wird es wieder eng. Vulkanismus beim Zerbrechen von Pangäa verändert das Klima. Viele Konkurrenten verschwinden – und machen den Weg frei für die Dinosaurier.',
+  b_cretaceous_paleogene: 'Das berühmteste Massenaussterben. Ein etwa 10 km großer Asteroid schlägt in Mexiko ein. Die Dinosaurier (außer den Vögeln) sterben aus – danach übernehmen die Säugetiere.',
 };

@@ -13,9 +13,9 @@ const GEO_DATA = [
     parent: null,
     color: "#9AD9F5",
     info: {
-      climate: "Starke Klimaschwankungen, von Eiszeiten bis zu tropischen Phasen",
-      life: "Explosion komplexen Lebens: Fische, Reptilien, Säugetiere, Blütenpflanzen",
-      events: "Kambrische Explosion, fünf große Massenaussterben"
+      climate: "Wildes Auf und Ab – von Eiszeiten bis zu tropischer Hitze",
+      life: "Das komplexe Leben explodiert: Fische, Reptilien, Säuger, Blütenpflanzen",
+      events: "Kambrische Explosion und fünf große Massenaussterben"
     }
   },
 
@@ -29,9 +29,9 @@ const GEO_DATA = [
     parent: "phanerozoic",
     color: "#F2F91D",
     info: {
-      climate: "Abkühlung vom Treibhausklima zu Eiszeitaltern",
-      life: "Aufstieg der Säugetiere und Vögel, Evolution des Menschen",
-      events: "Entstehung der Alpen und des Himalayas, Eiszeitalter"
+      climate: "Es wird kühler – vom Treibhaus zum Eiszeitalter",
+      life: "Säugetiere und Vögel steigen auf, der Mensch entwickelt sich",
+      events: "Alpen und Himalaya türmen sich auf, die Eiszeiten beginnen"
     }
   },
   {
@@ -43,9 +43,9 @@ const GEO_DATA = [
     parent: "cenozoic",
     color: "#F9F97F",
     info: {
-      climate: "Wechsel von Kalt- und Warmzeiten (Eiszeitalter)",
-      life: "Megafauna (Mammut, Säbelzahntiger), Evolution des modernen Menschen",
-      events: "Letzte Eiszeit, Ausbreitung des Homo sapiens, Aussterben der Megafauna"
+      climate: "Kalt- und Warmzeiten wechseln sich ab (das Eiszeitalter)",
+      life: "Mammut und Säbelzahntiger, dazu der moderne Mensch",
+      events: "Letzte Eiszeit, Homo sapiens breitet sich aus, Megafauna stirbt"
     }
   },
   {
@@ -57,9 +57,9 @@ const GEO_DATA = [
     parent: "cenozoic",
     color: "#FFE619",
     info: {
-      climate: "Fortschreitende Abkühlung, Bildung der antarktischen Eiskappe",
-      life: "Ausbreitung der Grasländer, erste Menschenaffen",
-      events: "Entstehung der Landbrücke zwischen Nord- und Südamerika"
+      climate: "Weiter abkühlend, die Antarktis vereist",
+      life: "Grasländer breiten sich aus, erste Menschenaffen",
+      events: "Nord- und Südamerika wachsen über eine Landbrücke zusammen"
     }
   },
   {
@@ -71,9 +71,9 @@ const GEO_DATA = [
     parent: "cenozoic",
     color: "#FD9A52",
     info: {
-      climate: "Zunächst warm und feucht, dann langsame Abkühlung",
-      life: "Schnelle Radiation der Säugetiere nach dem Dinosaurieraussterben",
-      events: "Erste Wale und Pferde, Trennung Australiens von der Antarktis"
+      climate: "Erst warm und feucht, dann langsam kühler",
+      life: "Säugetiere breiten sich nach dem Dino-Sterben rasant aus",
+      events: "Erste Wale und Pferde, Australien löst sich von der Antarktis"
     }
   },
 
@@ -87,9 +87,9 @@ const GEO_DATA = [
     parent: "phanerozoic",
     color: "#67C5CA",
     info: {
-      climate: "Überwiegend warm, kein permanentes Eis an den Polen",
-      life: "Zeitalter der Dinosaurier, erste Säugetiere und Blütenpflanzen",
-      events: "Zerfall von Pangäa, Kreide-Paläogen-Massenaussterben"
+      climate: "Meist warm, kein dauerhaftes Eis an den Polen",
+      life: "Zeitalter der Dinosaurier, dazu erste Säuger und Blütenpflanzen",
+      events: "Pangäa zerbricht, am Ende das große Dino-Sterben"
     }
   },
   {
@@ -101,9 +101,9 @@ const GEO_DATA = [
     parent: "mesozoic",
     color: "#7FC64E",
     info: {
-      climate: "Sehr warm, hoher Meeresspiegel, kein polares Eis",
-      life: "Blütezeit der Dinosaurier, erste Blütenpflanzen, große Meeresreptilien",
-      events: "Asteroideneinschlag vor 66 Ma → Massenaussterben (K-Pg-Grenze)"
+      climate: "Sehr warm, hoher Meeresspiegel, kein Pol-Eis",
+      life: "Blütezeit der Dinosaurier, erste Blüten, riesige Meeresreptilien",
+      events: "Asteroid schlägt vor 66 Mio. Jahren ein (K-Pg-Grenze)"
     }
   },
   {
@@ -115,9 +115,9 @@ const GEO_DATA = [
     parent: "mesozoic",
     color: "#34B2C9",
     info: {
-      climate: "Warm und feucht, tropische Bedingungen weit verbreitet",
-      life: "Große Sauropoden, Stegosaurus, erste Vögel (Archaeopteryx)",
-      events: "Zerfall von Pangäa beginnt, Atlantik öffnet sich"
+      climate: "Warm und feucht, oft tropisch",
+      life: "Riesige Sauropoden, Stegosaurus, erste Vögel (Archaeopteryx)",
+      events: "Pangäa zerbricht, der Atlantik öffnet sich"
     }
   },
   {
@@ -129,9 +129,9 @@ const GEO_DATA = [
     parent: "mesozoic",
     color: "#812B92",
     info: {
-      climate: "Heiß und trocken, besonders im Inneren von Pangäa",
-      life: "Erste Dinosaurier und Säugetiere, Nadelbäume dominieren",
-      events: "Massenaussterben am Ende der Trias, Zerfall von Pangäa beginnt"
+      climate: "Heiß und trocken, vor allem im Inneren von Pangäa",
+      life: "Erste Dinosaurier und Säuger, Nadelbäume dominieren",
+      events: "Pangäa beginnt zu zerbrechen, Massenaussterben am Ende"
     }
   },
 
@@ -145,9 +145,9 @@ const GEO_DATA = [
     parent: "phanerozoic",
     color: "#99C08D",
     info: {
-      climate: "Von warm zu Eiszeiten und zurück, starke Schwankungen",
-      life: "Erstes komplexes Leben, Fische, Amphibien, erste Reptilien, erste Landpflanzen",
-      events: "Kambrische Explosion, Besiedlung des Landes, Perm-Massenaussterben"
+      climate: "Starke Schwankungen – von warm zu Eiszeit und zurück",
+      life: "Erstes komplexes Leben: Fische, Amphibien, Reptilien, Landpflanzen",
+      events: "Kambrische Explosion, das Land wird besiedelt, Perm-Aussterben"
     }
   },
   {
@@ -159,9 +159,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#F04028",
     info: {
-      climate: "Zunächst Eiszeit, dann zunehmend heiß und trocken",
+      climate: "Erst Eiszeit, dann immer heißer und trockener",
       life: "Reptilien dominieren, erste Säugetier-Vorfahren (Synapsiden)",
-      events: "Größtes Massenaussterben der Erdgeschichte (~96% aller Arten)"
+      events: "Größtes Massenaussterben aller Zeiten (bis zu 96 % der Meeresarten)"
     }
   },
   {
@@ -173,9 +173,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#67A599",
     info: {
-      climate: "Feucht-warm, dann Vergletscherung auf der Südhalbkugel",
-      life: "Riesige Wälder aus Bärlapp und Farn, erste Reptilien, Rieseninsekten",
-      events: "Bildung der Steinkohle, hoher Sauerstoffgehalt der Atmosphäre"
+      climate: "Feucht-warm, später Vergletscherung im Süden",
+      life: "Riesige Bärlapp- und Farnwälder, erste Reptilien, Rieseninsekten",
+      events: "Die Steinkohle entsteht, der Sauerstoffgehalt ist sehr hoch"
     }
   },
   {
@@ -187,9 +187,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#CB8C37",
     info: {
-      climate: "Überwiegend warm, arides Klima auf vielen Landmassen",
+      climate: "Überwiegend warm, viele Landmassen trocken",
       life: "Zeitalter der Fische, erste Amphibien, erste Wälder",
-      events: "Besiedlung des Landes durch Pflanzen und Tiere, Kellwasser-Ereignis"
+      events: "Pflanzen und Tiere erobern das Land, Kellwasser-Ereignis"
     }
   },
   {
@@ -201,9 +201,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#B3E1B6",
     info: {
-      climate: "Warm und stabil, Meeresspiegel steigt",
-      life: "Erste Landpflanzen und Kieferfische, Korallen verbreiten sich",
-      events: "Kaledonische Gebirgsbildung, erste Bodenbildung an Land"
+      climate: "Warm und stabil, der Meeresspiegel steigt",
+      life: "Erste Landpflanzen und Kieferfische, Korallen breiten sich aus",
+      events: "Kaledonische Gebirgsbildung, erste Böden an Land"
     }
   },
   {
@@ -215,9 +215,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#009270",
     info: {
-      climate: "Zunächst warm, endet mit schwerer Eiszeit",
-      life: "Graptolithen, erste Korallen, marine Vielfalt explodiert",
-      events: "Ordovizisches Massenaussterben (zweitgrößtes), Gondwana-Vereisung"
+      climate: "Erst warm, am Ende eine schwere Eiszeit",
+      life: "Graptolithen, erste Korallen, die Meeresvielfalt explodiert",
+      events: "Zweitgrößtes Massenaussterben, Gondwana vereist"
     }
   },
   {
@@ -229,9 +229,9 @@ const GEO_DATA = [
     parent: "paleozoic",
     color: "#7FA056",
     info: {
-      climate: "Warm, hoher Meeresspiegel, kein Eis an den Polen",
+      climate: "Warm, hoher Meeresspiegel, kein Pol-Eis",
       life: "Kambrische Explosion: Trilobiten, Anomalocaris, erste Wirbeltiere",
-      events: "Plötzliches Auftreten fast aller Tierstämme in kurzer Zeit"
+      events: "Fast alle Tierstämme tauchen in kurzer Zeit auf"
     }
   },
 
@@ -245,9 +245,9 @@ const GEO_DATA = [
     parent: null,
     color: "#F73563",
     info: {
-      climate: "Mehrere Schneeball-Erde-Phasen, langsamer Sauerstoffanstieg",
+      climate: "Mehrere Schneeball-Erde-Phasen, der Sauerstoff steigt langsam",
       life: "Erste Eukaryoten, mehrzellige Organismen, Ediacara-Fauna",
-      events: "Große Sauerstoffkatastrophe, Snowball Earth, Rodinia bildet sich"
+      events: "Große Sauerstoffkatastrophe, Schneeball Erde, Rodinia entsteht"
     }
   },
 
@@ -261,9 +261,9 @@ const GEO_DATA = [
     parent: "proterozoic",
     color: "#FEB343",
     info: {
-      climate: "Extreme Vergletscherungen (Schneeball-Erde), dann Erwärmung",
+      climate: "Extreme Vereisungen (Schneeball Erde), dann Erwärmung",
       life: "Erste vielzellige Tiere (Ediacara-Fauna), Schwämme",
-      events: "Zerfall von Rodinia, Schneeball-Erde-Episoden"
+      events: "Rodinia zerbricht, mehrere Schneeball-Erde-Phasen"
     }
   },
   {
@@ -275,9 +275,9 @@ const GEO_DATA = [
     parent: "neoproterozoic",
     color: "#FED96A",
     info: {
-      climate: "Nach Schneeball-Erde: Erwärmung, Stabilisierung",
-      life: "Ediacara-Fauna: erste große, weichkörpige Organismen",
-      events: "Erste komplexe mehrzellige Lebensformen erscheinen"
+      climate: "Nach dem Eis: es wird wärmer und stabiler",
+      life: "Ediacara-Fauna: erste große, weichkörprige Lebewesen",
+      events: "Die ersten komplexen Vielzeller erscheinen"
     }
   },
   {
@@ -289,8 +289,8 @@ const GEO_DATA = [
     parent: "neoproterozoic",
     color: "#FEB75D",
     info: {
-      climate: "Schneeball-Erde: globale Vergletscherung bis zum Äquator",
-      life: "Überleben in Oasen unter dem Eis, einfache Eukaryoten",
+      climate: "Schneeball Erde: Eis bis zum Äquator",
+      life: "Leben überdauert in Nischen unter dem Eis, einfache Eukaryoten",
       events: "Sturtische und Marinoische Vereisung"
     }
   },
@@ -303,9 +303,9 @@ const GEO_DATA = [
     parent: "neoproterozoic",
     color: "#FE9A63",
     info: {
-      climate: "Relativ stabil, langsame Abkühlung",
+      climate: "Ziemlich stabil, langsam kühler werdend",
       life: "Erste gesicherte vielzellige Eukaryoten",
-      events: "Zerfall des Superkontinents Rodinia beginnt"
+      events: "Der Superkontinent Rodinia beginnt zu zerbrechen"
     }
   },
 
@@ -319,9 +319,9 @@ const GEO_DATA = [
     parent: "proterozoic",
     color: "#FDB462",
     info: {
-      climate: "Relativ stabil und warm",
+      climate: "Ziemlich stabil und warm",
       life: "Erste sexuelle Fortpflanzung, einfache mehrzellige Algen",
-      events: "Bildung des Superkontinents Rodinia"
+      events: "Der Superkontinent Rodinia bildet sich"
     }
   },
   {
@@ -334,8 +334,8 @@ const GEO_DATA = [
     color: "#FDC07A",
     info: {
       climate: "Warm und stabil",
-      life: "Älteste gesicherte sexuelle Fortpflanzung (Rotalgen)",
-      events: "Bildung von Rodinia, Grenville-Orogenese"
+      life: "Älteste Belege für sexuelle Fortpflanzung (Rotalgen)",
+      events: "Rodinia bildet sich, Grenville-Gebirgsbildung"
     }
   },
   {
@@ -348,8 +348,8 @@ const GEO_DATA = [
     color: "#FDB97A",
     info: {
       climate: "Stabil, mäßig warm",
-      life: "Einzellige Eukaryoten diversifizieren sich",
-      events: "Ausdehnung bestehender Sedimentbecken"
+      life: "Einzellige Eukaryoten werden vielfältiger",
+      events: "Bestehende Sedimentbecken dehnen sich aus"
     }
   },
   {
@@ -361,9 +361,9 @@ const GEO_DATA = [
     parent: "mesoproterozoic",
     color: "#FDAB60",
     info: {
-      climate: "Warm, wenig Sauerstoff in der Atmosphäre",
-      life: "Einfache Eukaryoten, Cyanobakterien-Matten",
-      events: "Überdeckung alter Kratone mit Sedimenten"
+      climate: "Warm, wenig Sauerstoff in der Luft",
+      life: "Einfache Eukaryoten, Matten aus Cyanobakterien",
+      events: "Alte Kontinentkerne verschwinden unter Sedimenten"
     }
   },
 
@@ -377,9 +377,9 @@ const GEO_DATA = [
     parent: "proterozoic",
     color: "#F74370",
     info: {
-      climate: "Erste große Eiszeit (Huronische Vereisung), dann Erwärmung",
-      life: "Erste Eukaryoten, Cyanobakterien produzieren Sauerstoff",
-      events: "Große Sauerstoffkatastrophe vor ~2,4 Ga"
+      climate: "Erste große Eiszeit (Huronische Vereisung), dann wärmer",
+      life: "Erste Eukaryoten, Cyanobakterien machen Sauerstoff",
+      events: "Große Sauerstoffkatastrophe vor rund 2,4 Mrd. Jahren"
     }
   },
   {
@@ -392,8 +392,8 @@ const GEO_DATA = [
     color: "#F76390",
     info: {
       climate: "Stabil nach der Sauerstoffkrise",
-      life: "Einfache Eukaryoten etablieren sich",
-      events: "Bildung großer Sedimentbecken, erste komplexe Zellen"
+      life: "Einfache Eukaryoten setzen sich durch",
+      events: "Große Sedimentbecken bilden sich, erste komplexe Zellen"
     }
   },
   {
@@ -405,9 +405,9 @@ const GEO_DATA = [
     parent: "paleoproterozoic",
     color: "#F7537F",
     info: {
-      climate: "Nach Eiszeit: steigende Temperaturen",
+      climate: "Nach der Eiszeit: Temperaturen steigen",
       life: "Cyanobakterien dominieren, erste Eukaryoten möglich",
-      events: "Vredefort- und Sudbury-Impakte, intensive Gebirgsbildung"
+      events: "Riesige Einschläge (Vredefort, Sudbury), starke Gebirgsbildung"
     }
   },
   {
@@ -419,9 +419,9 @@ const GEO_DATA = [
     parent: "paleoproterozoic",
     color: "#F74370",
     info: {
-      climate: "Huronische Vereisung klingt ab",
-      life: "Cyanobakterien-Stromatolithen",
-      events: "Bushveld-Komplex bildet sich, globale Vergletscherung endet"
+      climate: "Die Huronische Vereisung klingt ab",
+      life: "Stromatolithen aus Cyanobakterien",
+      events: "Bushveld-Komplex entsteht, die globale Vereisung endet"
     }
   },
   {
@@ -434,7 +434,7 @@ const GEO_DATA = [
     color: "#F73363",
     info: {
       climate: "Beginn der Huronischen Vereisung",
-      life: "Cyanobakterien, Stromatolithen",
+      life: "Cyanobakterien und Stromatolithen",
       events: "Große Sauerstoffkatastrophe: freier Sauerstoff reichert sich an"
     }
   },
@@ -449,9 +449,9 @@ const GEO_DATA = [
     parent: null,
     color: "#F0047D",
     info: {
-      climate: "Heiße Oberfläche, reduzierende Atmosphäre ohne Sauerstoff",
-      life: "Erstes Leben: Prokaryoten, Stromatolithen, Archaea",
-      events: "Bildung erster stabiler Kontinente, älteste Gesteine der Erde"
+      climate: "Heiße Oberfläche, Atmosphäre ganz ohne Sauerstoff",
+      life: "Das erste Leben: Prokaryoten, Stromatolithen, Archaeen",
+      events: "Erste stabile Kontinente, die ältesten Gesteine der Erde"
     }
   },
 
@@ -465,9 +465,9 @@ const GEO_DATA = [
     parent: "archean",
     color: "#F99BC1",
     info: {
-      climate: "Heiß, kein Sauerstoff, starke vulkanische Aktivität",
-      life: "Cyanobakterien beginnen Sauerstoff zu produzieren",
-      events: "Erste stabile Kratone, Beginn der Plattentektonik im modernen Sinne"
+      climate: "Heiß, kein Sauerstoff, viele Vulkane",
+      life: "Cyanobakterien fangen an, Sauerstoff zu produzieren",
+      events: "Erste stabile Kratone, Plattentektonik wie heute beginnt"
     }
   },
 
@@ -481,8 +481,8 @@ const GEO_DATA = [
     parent: "archean",
     color: "#F780AB",
     info: {
-      climate: "Sehr heiß, keine freie Sauerstoffatmosphäre",
-      life: "Stromatolithen weit verbreitet, älteste gesicherte Fossilien",
+      climate: "Sehr heiß, noch kein freier Sauerstoff",
+      life: "Stromatolithen überall, älteste gesicherte Fossilien",
       events: "Erste größere Krustenbildung"
     }
   },
@@ -497,9 +497,9 @@ const GEO_DATA = [
     parent: "archean",
     color: "#F76098",
     info: {
-      climate: "Extrem heiß, intensive UV-Strahlung",
-      life: "Älteste mögliche Lebensspuren (Isua-Grönland)",
-      events: "Älteste bekannte Gesteine (Isua-Gneis, ~3,8 Ga)"
+      climate: "Extrem heiß, starke UV-Strahlung",
+      life: "Älteste mögliche Lebensspuren (Isua, Grönland)",
+      events: "Älteste bekannte Gesteine (rund 3,8 Mrd. Jahre)"
     }
   },
 
@@ -513,9 +513,9 @@ const GEO_DATA = [
     parent: "archean",
     color: "#DA037B",
     info: {
-      climate: "Keine stabile Atmosphäre, ständiges Bombardement",
-      life: "Möglicherweise erstes Leben (umstritten)",
-      events: "Spätes schweres Bombardement, Jack Hills-Zirkone"
+      climate: "Keine stabile Atmosphäre, Dauerbeschuss aus dem All",
+      life: "Vielleicht schon erstes Leben (umstritten)",
+      events: "Spätes schweres Bombardement, Jack-Hills-Zirkone"
     }
   },
 
@@ -529,9 +529,9 @@ const GEO_DATA = [
     parent: null,
     color: "#AE0160",
     info: {
-      climate: "Magmaozean, ständige Meteoriteneinschläge, keine stabile Kruste",
-      life: "Kein bekanntes Leben",
-      events: "Entstehung der Erde, Mondbildung durch Theia-Einschlag, Bildung der Uratmosphäre"
+      climate: "Ein Ozean aus Magma, Dauerbeschuss, noch keine feste Kruste",
+      life: "Noch kein Leben",
+      events: "Die Erde entsteht, der Mond bildet sich (Theia), erste Uratmosphäre"
     }
   }
 ];
