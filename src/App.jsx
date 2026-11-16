@@ -23,6 +23,7 @@ import Profil from './pages/Profil';
 import EpochGroup from './pages/EpochGroup';
 import LearnMode from './pages/LearnMode';
 import ScrollTimeline from './pages/ScrollTimeline';
+import Training from './pages/Training';
 import BottomTabBar from './components/BottomTabBar';
 
 const AuthenticatedApp = () => {
@@ -35,6 +36,7 @@ const AuthenticatedApp = () => {
       <Route path="/epochenquiz" element={<EpochGroup />} />
       <Route path="/learn/:modeId" element={<LearnMode />} />
       <Route path="/timeline/scroll" element={<ScrollTimeline />} />
+      <Route path="/training" element={<Training />} />
       <Route path="/mode/:modeId" element={<ModeOverview />} />
       <Route path="/game/:modeId/:gameType" element={<Game />} />
       <Route path="/knowledge" element={<Knowledge />} />

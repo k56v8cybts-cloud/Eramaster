@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Thermometer, Leaf, Sparkles } from 'lucide-react';
 import { formatMa } from '@/lib/geoUtils';
 import { Button } from '@/components/ui/button';
+import PaleoPanel from './PaleoPanel';
 
 export default function InfoOverlay({ item, onClose }) {
   if (!item) return null;
@@ -44,7 +45,7 @@ export default function InfoOverlay({ item, onClose }) {
             </Button>
           </div>
 
-          <div className="px-5 pb-6 space-y-4">
+          <div className="px-5 pb-6 space-y-4 overflow-y-auto" style={{ maxHeight: '62dvh' }}>
             {item.info && (
               <>
                 <InfoRow icon={Thermometer} label="Klima" text={item.info.climate} />
@@ -52,6 +53,7 @@ export default function InfoOverlay({ item, onClose }) {
                 <InfoRow icon={Sparkles} label="Ereignisse" text={item.info.events} />
               </>
             )}
+            <PaleoPanel unit={item} />
           </div>
         </motion.div>
       </motion.div>

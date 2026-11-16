@@ -1,31 +1,48 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
-// Spiegelt den lokal gespeicherten Spielfortschritt (localStorage-Keys mit
-// Präfix "geozeit_runs_") in die Firestore-Datenbank des angemeldeten Kontos
-// und wieder zurück. Beim ersten Login werden lokaler und Cloud-Stand
-// zusammengeführt, damit nichts verloren geht.
+// Spiegelt den lokal gespeicherten Fortschritt in die Firestore-Datenbank des
+// angemeldeten Kontos und wieder zurück. Beim Login werden lokaler und
+// Cloud-Stand zusammengeführt, damit nichts verloren geht.
+//
+// Synchronisierte Daten (Dokument users/{uid}):
+//   runs        ← localStorage "geozeit_runs_*"    Spielläufe je Modus (Listen)
+//   cards       ← localStorage "geozeit_cards"      Karteikasten des Trainings (Karte → Stand)
+//   discovered  ← localStorage "geozeit_discovered" im Zeitstrahl entdeckte Inhalte (Liste von ids)
 
 const RUNS_PREFIX = 'geozeit_runs_';
+const CARDS_KEY = 'geozeit_cards';
+const DISCOVERED_KEY = 'geozeit_discovered';
 const MAX_RUNS = 50;
 
 let currentUid = null;
 let pushTimer = null;
 let patched = false;
 
+function readJson(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 function readLocalRuns() {
   const runs = {};
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key && key.startsWith(RUNS_PREFIX)) {
-      try {
-        runs[key] = JSON.parse(localStorage.getItem(key) || '[]');
-      } catch {
-        runs[key] = [];
-      }
-    }
+    if (key && key.startsWith(RUNS_PREFIX)) runs[key] = readJson(key, []);
   }
   return runs;
+}
+
+function readLocal() {
+  return {
+    runs: readLocalRuns(),
+    cards: readJson(CARDS_KEY, {}),
+    discovered: readJson(DISCOVERED_KEY, []),
+  };
 }
 
 // Stabile Signatur unabhängig von der Schlüssel-Reihenfolge
@@ -49,12 +66,25 @@ function mergeRunArrays(a = [], b = []) {
   return out.slice(0, MAX_RUNS);
 }
 
-async function writeCloud(uid, runs) {
+// Karteikasten: je Karte gewinnt der zuletzt geänderte Stand (Feld t = Zeitstempel).
+function mergeCards(a = {}, b = {}) {
+  const out = { ...(a || {}) };
+  for (const [id, entry] of Object.entries(b || {})) {
+    if (!out[id] || (entry?.t || 0) > (out[id]?.t || 0)) out[id] = entry;
+  }
+  return out;
+}
+
+function mergeLists(a = [], b = []) {
+  return Array.from(new Set([...(a || []), ...(b || [])]));
+}
+
+async function writeCloud(uid, data, { overwrite = false } = {}) {
   try {
     await setDoc(
       doc(db, 'users', uid),
-      { runs, updatedAt: Date.now() },
-      { merge: true }
+      { ...data, updatedAt: Date.now() },
+      overwrite ? {} : { merge: true }
     );
   } catch (e) {
     console.error('Cloud-Speichern fehlgeschlagen:', e);
@@ -63,27 +93,32 @@ async function writeCloud(uid, runs) {
 
 // Beim Login: Cloud lesen, mit lokal zusammenführen, beides aktualisieren.
 export async function pullAndMerge(uid) {
-  const local = readLocalRuns();
+  const local = readLocal();
   let cloud = {};
   try {
     const snap = await getDoc(doc(db, 'users', uid));
-    if (snap.exists()) cloud = snap.data().runs || {};
+    if (snap.exists()) cloud = snap.data() || {};
   } catch (e) {
     console.error('Cloud-Lesen fehlgeschlagen:', e);
   }
 
-  const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);
-  const merged = {};
-  for (const key of keys) {
-    merged[key] = mergeRunArrays(local[key], cloud[key]);
-  }
+  const cloudRuns = cloud.runs || {};
+  const runKeys = new Set([...Object.keys(local.runs), ...Object.keys(cloudRuns)]);
+  const runs = {};
+  for (const key of runKeys) runs[key] = mergeRunArrays(local.runs[key], cloudRuns[key]);
 
-  for (const key of Object.keys(merged)) {
-    try {
-      localStorage.setItem(key, JSON.stringify(merged[key]));
-    } catch {
-      // ignore
-    }
+  const merged = {
+    runs,
+    cards: mergeCards(local.cards, cloud.cards),
+    discovered: mergeLists(local.discovered, cloud.discovered),
+  };
+
+  try {
+    for (const key of Object.keys(runs)) localStorage.setItem(key, JSON.stringify(runs[key]));
+    localStorage.setItem(CARDS_KEY, JSON.stringify(merged.cards));
+    localStorage.setItem(DISCOVERED_KEY, JSON.stringify(merged.discovered));
+  } catch {
+    // ignore
   }
   await writeCloud(uid, merged);
   try {
@@ -96,13 +131,18 @@ export async function pullAndMerge(uid) {
 function schedulePush() {
   if (!currentUid) return;
   clearTimeout(pushTimer);
-  pushTimer = setTimeout(() => writeCloud(currentUid, readLocalRuns()), 1500);
+  pushTimer = setTimeout(() => writeCloud(currentUid, readLocal()), 1500);
 }
 
 function flushPush() {
   if (!currentUid) return;
   clearTimeout(pushTimer);
-  writeCloud(currentUid, readLocalRuns());
+  writeCloud(currentUid, readLocal());
+}
+
+function isSyncedKey(key) {
+  return typeof key === 'string'
+    && (key.startsWith(RUNS_PREFIX) || key === CARDS_KEY || key === DISCOVERED_KEY);
 }
 
 // Startet die laufende Synchronisation nach dem Login.
@@ -115,9 +155,7 @@ export function startSync(uid) {
     const original = window.localStorage.setItem.bind(window.localStorage);
     window.localStorage.setItem = function (key, value) {
       original(key, value);
-      if (typeof key === 'string' && key.startsWith(RUNS_PREFIX)) {
-        schedulePush();
-      }
+      if (isSyncedKey(key)) schedulePush();
     };
     window.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') flushPush();
@@ -133,6 +171,8 @@ export function stopSync() {
 }
 
 // Setzt den Fortschritt auch in der Cloud zurück (für "Alle Daten zurücksetzen").
+// Überschreibt das Dokument komplett – ein Zusammenführen würde nichts löschen.
 export async function clearCloud(uid) {
-  await writeCloud(uid, {});
+  clearTimeout(pushTimer);
+  await writeCloud(uid, { runs: {}, cards: {}, discovered: [] }, { overwrite: true });
 }

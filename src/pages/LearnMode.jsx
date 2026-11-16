@@ -8,6 +8,7 @@ import { LEARN_SUMMARIES, BIG_FIVE_LEARN } from '@/lib/learnData';
 import { CREATURES } from '@/lib/creaturesData';
 import { MILESTONES, CATEGORY_COLORS, CATEGORY_LABELS, getMa, isRange } from '@/lib/milestonesData';
 import { BIG_FIVE_ITEMS } from '@/lib/bigFiveData';
+import PaleoPanel from '@/components/geo/PaleoPanel';
 
 // Anzeigename des Modus im Kopf
 const MODE_TITLE = {
@@ -50,6 +51,7 @@ function buildCards(modeId) {
         rangeLabel: formatRange(e.start_ma, e.end_ma),
         body: LEARN_SUMMARIES[e.id],
         info: e.info,
+        unit: e,
       }));
   }
   if (modeId === 'creatures') {
@@ -64,6 +66,7 @@ function buildCards(modeId) {
         rangeLabel: formatRange(c.start_ma, c.end_ma),
         body: c.fact,
         image: c.image,
+        imageCredit: c.imageCredit,
       }));
   }
   if (modeId === 'milestones') {
@@ -187,6 +190,9 @@ export default function LearnMode() {
                     />
                   </div>
                 )}
+                {entry.image && entry.imageCredit && (
+                  <p className="text-[9px] text-muted-foreground/80 -mt-3 mb-4">Bild: {entry.imageCredit}</p>
+                )}
 
                 {entry.body && <p className="text-[15px] text-foreground leading-relaxed mb-5">{entry.body}</p>}
 
@@ -206,6 +212,12 @@ export default function LearnMode() {
                         </div>
                       ) : null
                     ))}
+                  </div>
+                )}
+
+                {entry.unit && (
+                  <div className="mt-5">
+                    <PaleoPanel unit={entry.unit} />
                   </div>
                 )}
               </div>

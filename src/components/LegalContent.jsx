@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CREATURES } from '@/lib/creaturesData';
 
 // =====================================================================
 //  IMPRESSUMS-DATEN  –  hier die Platzhalter durch die echten Angaben
@@ -86,6 +87,20 @@ function Impressum() {
         </p>
       </Section>
 
+      <Section title="Bildnachweise">
+        <p>Die Bilder stammen von Wikimedia Commons und stehen unter den genannten freien Lizenzen:</p>
+        <ul className="list-disc pl-4 space-y-1">
+          {CREATURES.filter((c) => c.imageCredit).map((c) => (
+            <li key={c.id}>
+              <a href={c.imageSource} target="_blank" rel="noreferrer" className="underline underline-offset-2">{c.name}</a>
+              : {c.imageCredit.replace(' · Wikimedia Commons', '')}
+            </li>
+          ))}
+          <li>Kontinentkarten: Scotese, Vérard, Burgener, Elling &amp; Kocsis, PALEOMAP · CC BY 4.0</li>
+        </ul>
+        <p>Temperaturkurve: eigene schematische Darstellung, Näherungswerte nach Scotese et al. (2021).</p>
+      </Section>
+
       <p className="text-xs text-muted-foreground/70 mt-8">Stand: {STAND}</p>
     </div>
   );
@@ -160,14 +175,25 @@ function Datenschutz() {
         </p>
       </Section>
 
-      <Section title="6. Keine Analyse, keine Werbung">
+      <Section title="6. Bilder und Karten (Wikimedia Commons)">
+        <p>
+          Bilder von Lebewesen und die Kontinentkarten werden direkt von den
+          Servern der Wikimedia Foundation Inc. (1 Montgomery Street, Suite 1600,
+          San Francisco, CA 94104, USA) geladen. Dabei erhält Wikimedia technisch
+          bedingt deine IP-Adresse. Rechtsgrundlage ist das berechtigte Interesse
+          an einer anschaulichen Darstellung der Lerninhalte (Art. 6 Abs. 1 lit. f
+          DSGVO). Dabei können Daten in die USA übermittelt werden.
+        </p>
+      </Section>
+
+      <Section title="7. Keine Analyse, keine Werbung">
         <p>
           Äramaster nutzt keine Analyse- oder Tracking-Dienste, keine Werbung und
           keine Cookies zu Werbe- oder Statistikzwecken. Es findet kein Profiling statt.
         </p>
       </Section>
 
-      <Section title="7. Speicherdauer und Löschung">
+      <Section title="8. Speicherdauer und Löschung">
         <p>
           Lokale Daten bleiben gespeichert, bis du sie löschst (z. B. über
           „Alle Daten zurücksetzen" in den Einstellungen oder durch Leeren des
@@ -180,7 +206,7 @@ function Datenschutz() {
         </p>
       </Section>
 
-      <Section title="8. Deine Rechte">
+      <Section title="9. Deine Rechte">
         <p>
           Dir stehen gegenüber uns die folgenden Rechte hinsichtlich deiner
           personenbezogenen Daten zu: Auskunft (Art. 15), Berichtigung (Art. 16),

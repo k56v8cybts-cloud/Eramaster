@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Hourglass, Skull, Footprints, Dna, HelpCircle, Trophy, Settings, Gamepad2, ChevronRight, Ruler } from 'lucide-react';
+import { Hourglass, Skull, Footprints, Dna, HelpCircle, Trophy, Settings, Gamepad2, ChevronRight, Ruler, Brain } from 'lucide-react';
 import ProfileContent from '@/components/ProfileContent';
 import ErfolgeContent from '@/components/ErfolgeContent';
 
@@ -17,7 +17,8 @@ const modes = [
   { id: 'creatures', to: '/mode/creatures', title: 'Prähistorische Lebewesen', description: 'Ordne ikonische Urzeitwesen ihrer Periode zu.', icon: Footprints, color: '#2A9D8F' },
   { id: 'bigfive', to: '/mode/bigfive', title: 'The Big Five', description: 'Finde die fünf großen Massenaussterben im Zeitstrahl.', icon: Skull, color: '#C1443B' },
   { id: 'epochenquiz', to: '/epochenquiz', title: 'EpochenQuiz', description: 'Äonen, Ären, Perioden & Expertenmodus der Zeitskala.', icon: Hourglass, color: '#0E8CA8' },
-  { id: 'timeline', to: '/timeline/scroll', title: 'Zeitstrahl (Maßstab)', description: 'Scrolle durch 4,6 Mrd. Jahre im echten Zeitmaßstab.', icon: Ruler, color: '#8B6DD6' },
+  { id: 'timeline', to: '/timeline/scroll', title: 'Zeitstrahl entdecken', description: 'Scrolle durch 4,6 Mrd. Jahre – Inhalte tauchen an ihrer Stelle auf.', icon: Ruler, color: '#8B6DD6' },
+  { id: 'training', to: '/training', title: 'Training', description: 'Karteikasten: übt gezielt, was du oft falsch hast.', icon: Brain, color: '#D9793B' },
 ];
 
 function SpieleTab() {

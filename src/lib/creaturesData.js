@@ -1,6 +1,6 @@
 // Prehistoric creatures data for the "Prähistorische Lebewesen" game mode
 // period: must match a period id from geoData.js
-// image: Wikimedia Commons / public domain images
+// image: Wikimedia Commons (über die Commons-API geprüft); imageCredit = Urheber · Lizenz, imageSource = Dateiseite
 
 export const CREATURES = [
   {
@@ -10,7 +10,9 @@ export const CREATURES = [
     end_ma: 540,
     period: 'ediacaran',
     periodName: 'Ediacarium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Dickinsonia_costata.jpg/320px-Dickinsonia_costata.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Dickinsonia_costata.jpg/500px-Dickinsonia_costata.jpg',
+    imageCredit: 'Ghedoghedo · CC BY-SA 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Dickinsonia_costata.jpg',
     fact: 'Eines der ältesten bekannten vielzelligen Tiere – lebte im flachen Ediacara-Meer.',
   },
   {
@@ -20,7 +22,9 @@ export const CREATURES = [
     end_ma: 505,
     period: 'cambrian',
     periodName: 'Kambrium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Anomalocaris_canadensis.jpg/320px-Anomalocaris_canadensis.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Anomalocaris_canadensis.jpg/500px-Anomalocaris_canadensis.jpg',
+    imageCredit: 'Claire H. from New York City, USA · CC BY-SA 2.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Anomalocaris_canadensis.jpg',
     fact: 'Mit bis zu 1 m Länge der größte Raubtieer seiner Zeit – ein Apex-Räuber der kambrischen Meere.',
   },
   {
@@ -30,7 +34,9 @@ export const CREATURES = [
     end_ma: 505,
     period: 'cambrian',
     periodName: 'Kambrium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Opabinia_BW.jpg/320px-Opabinia_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Opabinia_BW.jpg/500px-Opabinia_BW.jpg',
+    imageCredit: 'Nobu Tamura · CC BY 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Opabinia_BW.jpg',
     fact: 'Fünf Augen und ein rüsselartiges Greifwerkzeug – eines der bizarrsten Tiere der Kambrischen Explosion.',
   },
   {
@@ -40,7 +46,9 @@ export const CREATURES = [
     end_ma: 505,
     period: 'cambrian',
     periodName: 'Kambrium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Hallucigenia_sparsa.jpg/320px-Hallucigenia_sparsa.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Hallucigenia_sparsa.jpg',
+    imageCredit: 'Ghedoghedo · CC BY-SA 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Hallucigenia_sparsa.jpg',
     fact: 'Jahrzehntelang wurde dieses Tier buchstäblich auf dem Kopf dargestellt – heute gilt es als früher Verwandter der Stachelhäuter.',
   },
   {
@@ -50,7 +58,9 @@ export const CREATURES = [
     end_ma: 252,
     period: 'cambrian',
     periodName: 'Kambrium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Trilobit.jpg/320px-Trilobit.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Trilobit.jpg/500px-Trilobit.jpg',
+    imageCredit: 'Richard Seefeld · Public domain · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Trilobit.jpg',
     fact: 'Über 300 Millionen Jahre erfolgreiche Gliederfüßer – sie überlebten vier Massenaussterben.',
   },
   {
@@ -60,7 +70,9 @@ export const CREATURES = [
     end_ma: 200,
     period: 'ordovician',
     periodName: 'Ordovizium',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Orthoceras_BW.jpg/320px-Orthoceras_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Orthoceras_BW.jpg/500px-Orthoceras_BW.jpg',
+    imageCredit: 'Nobu Tamura · CC BY 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Orthoceras_BW.jpg',
     fact: 'Gestreckter Tintenfisch-Verwandter – ein aktiver Räuber in ordovizischen Meeren.',
   },
   {
@@ -70,7 +82,9 @@ export const CREATURES = [
     end_ma: 419,
     period: 'silurian',
     periodName: 'Silur',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Pterygotus_BW.jpg/320px-Pterygotus_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Pterygotus.png/500px-Pterygotus.png',
+    imageCredit: 'Tim Bertelink · CC BY-SA 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Pterygotus.png',
     fact: 'Bis zu 2,5 m langer Meeresskorpion – einer der größten Gliederfüßer aller Zeiten.',
   },
   {
@@ -80,7 +94,9 @@ export const CREATURES = [
     end_ma: 359,
     period: 'devonian',
     periodName: 'Devon',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Dunkleosteus_BW.jpg/320px-Dunkleosteus_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Dunkleosteus_BW.jpg/500px-Dunkleosteus_BW.jpg',
+    imageCredit: 'Nobu Tamura · CC BY 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Dunkleosteus_BW.jpg',
     fact: 'Bis zu 8 m langer Panzerfisch mit selbstschärfenden Knochenzähnen – der T-Rex der devonischen Meere.',
   },
   {
@@ -90,7 +106,9 @@ export const CREATURES = [
     end_ma: 371,
     period: 'devonian',
     periodName: 'Devon',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tiktaalik_roseae_life_restor.jpg/320px-Tiktaalik_roseae_life_restor.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Tiktaalik_roseae_life_restor.jpg/500px-Tiktaalik_roseae_life_restor.jpg',
+    imageCredit: 'Zina Deretsky, National Science Foundation · Public domain · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Tiktaalik_roseae_life_restor.jpg',
     fact: 'Das "missing link" zwischen Fisch und Landwirbeltier – besaß bereits primitive Beine.',
   },
   {
@@ -100,7 +118,9 @@ export const CREATURES = [
     end_ma: 299,
     period: 'carboniferous',
     periodName: 'Karbon',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Arthropleura_BW.jpg/320px-Arthropleura_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Arthropleura_NT_small.jpg/500px-Arthropleura_NT_small.jpg',
+    imageCredit: 'Nobu Tamura · CC BY-SA 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Arthropleura_NT_small.jpg',
     fact: 'Bis zu 2,6 m langer Riesenmillipede – das größte Landtier seiner Zeit lebte in karbonischen Wäldern.',
   },
   {
@@ -110,7 +130,9 @@ export const CREATURES = [
     end_ma: 299,
     period: 'carboniferous',
     periodName: 'Karbon',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Meganeura_BW.jpg/320px-Meganeura_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Meganeura.png/500px-Meganeura.png',
+    imageCredit: 'Qohelet12 · CC BY-SA 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Meganeura.png',
     fact: 'Riesenlibelle mit bis zu 70 cm Spannweite – möglich durch den hohen Sauerstoffgehalt der karbonischen Atmosphäre.',
   },
   {
@@ -120,7 +142,9 @@ export const CREATURES = [
     end_ma: 272,
     period: 'permian',
     periodName: 'Perm',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Dimetrodon_BW.jpg/320px-Dimetrodon_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Dimetrodon_BW.jpg/500px-Dimetrodon_BW.jpg',
+    imageCredit: 'Nobu Tamura · CC BY 2.5 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Dimetrodon_BW.jpg',
     fact: 'Kein Dinosaurier, sondern ein Synapsid – näher mit uns Säugetieren verwandt als mit Reptilien.',
   },
   {
@@ -130,7 +154,9 @@ export const CREATURES = [
     end_ma: 201,
     period: 'triassic',
     periodName: 'Trias',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Coelophysis_BW.jpg/320px-Coelophysis_BW.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Coelophysis_Jeff_Martz_%28flipped%29.jpg/500px-Coelophysis_Jeff_Martz_%28flipped%29.jpg',
+    imageCredit: 'Park Ranger, artist Jeff Martz · Public domain · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Coelophysis_Jeff_Martz_(flipped).jpg',
     fact: 'Einer der frühesten Dinosaurier – schlanker, schneller Raubdinosaurier aus der Trias.',
   },
   {
@@ -140,7 +166,9 @@ export const CREATURES = [
     end_ma: 204,
     period: 'triassic',
     periodName: 'Trias',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Plateosaurus_engelhardti_DB.jpg/320px-Plateosaurus_engelhardti_DB.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Plateosaurus_BW.jpg/500px-Plateosaurus_BW.jpg',
+    imageCredit: 'Nobu Tamura · CC BY 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Plateosaurus_BW.jpg',
     fact: 'Früher Sauropoden-Verwandter – konnte sowohl auf zwei als auch auf vier Beinen laufen.',
   },
   {
@@ -150,7 +178,9 @@ export const CREATURES = [
     end_ma: 150,
     period: 'jurassic',
     periodName: 'Jura',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Stegosaurus_stenops_2-steveoc86.jpg/320px-Stegosaurus_stenops_2-steveoc86.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Stegosaurus_TD.png/500px-Stegosaurus_TD.png',
+    imageCredit: 'TotalDino · CC BY 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Stegosaurus_TD.png',
     fact: 'Trotz seiner Größe hatte der Stegosaurus ein Gehirn von der Größe einer Walnuss.',
   },
   {
@@ -160,7 +190,9 @@ export const CREATURES = [
     end_ma: 148,
     period: 'jurassic',
     periodName: 'Jura',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg/320px-Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg/500px-Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg',
+    imageCredit: 'H. Raab (User: Vesta) · CC BY-SA 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Archaeopteryx_lithographica_(Berlin_specimen).jpg',
     fact: 'Das "Urvogel"-Fossil – Bindeglied zwischen Dinosauriern und modernen Vögeln.',
   },
   {
@@ -170,7 +202,9 @@ export const CREATURES = [
     end_ma: 66,
     period: 'cretaceous',
     periodName: 'Kreide',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tyrannosaurus_rex_mmartyniuk_wiki.png/320px-Tyrannosaurus_rex_mmartyniuk_wiki.png',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Tyrannosaurus_rex_mmartyniuk.png/500px-Tyrannosaurus_rex_mmartyniuk.png',
+    imageCredit: 'Matt Martyniuk · CC BY-SA 3.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Tyrannosaurus_rex_mmartyniuk.png',
     fact: 'Einer der größten Landraubtiere der Erdgeschichte – lebte ganz am Ende der Kreidezeit.',
   },
   {
@@ -180,7 +214,9 @@ export const CREATURES = [
     end_ma: 66,
     period: 'cretaceous',
     periodName: 'Kreide',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Triceratops_AMNH_02.jpg/320px-Triceratops_AMNH_02.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Triceratops_TD.png/500px-Triceratops_TD.png',
+    imageCredit: 'TotalDino · CC BY 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Triceratops_TD.png',
     fact: 'Bis zu 9 m lang – der Drei-Horn-Dinosaurier war ein Pflanzenfresser der späten Kreide.',
   },
   {
@@ -190,7 +226,9 @@ export const CREATURES = [
     end_ma: 3.6,
     period: 'neogene',
     periodName: 'Neogen',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Megalodon_shark_jaws_museum_of_natural_history_2.jpg/320px-Megalodon_shark_jaws_museum_of_natural_history_2.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Otodus_megalodon_restoration.png/500px-Otodus_megalodon_restoration.png',
+    imageCredit: 'Oliver E. Demuth · CC BY 4.0 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Otodus_megalodon_restoration.png',
     fact: 'Bis zu 18 m langer Hai mit bis zu 18 cm langen Zähnen – der größte Räuber der Erdgeschichte.',
   },
   {
@@ -200,7 +238,9 @@ export const CREATURES = [
     end_ma: 0.004,
     period: 'quaternary',
     periodName: 'Quartär',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Woolly_mammoth_-_Mauricio_Anton.jpg/320px-Woolly_mammoth_-_Mauricio_Anton.jpg',
+    image: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Woolly_mammoth_%28Mammuthus_primigenius%29_-_Mauricio_Ant%C3%B3n.jpg/500px-Woolly_mammoth_%28Mammuthus_primigenius%29_-_Mauricio_Ant%C3%B3n.jpg',
+    imageCredit: 'Mauricio Antón · CC BY 2.5 · Wikimedia Commons',
+    imageSource: 'https://commons.wikimedia.org/wiki/File:Woolly_mammoth_(Mammuthus_primigenius)_-_Mauricio_Ant%C3%B3n.jpg',
     fact: 'Das Wollhaarmammut überlebte die letzte Eiszeit – kleine Inselpopulationen lebten noch vor ~4000 Jahren.',
   },
 ];
